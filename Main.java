@@ -20,29 +20,33 @@ import java.io.*;
 public class Main {
 	
 	// static variables and constants only here.
+	public static ArrayList<String> dictionary;
 	
 	public static void main(String[] args) throws Exception {
 		
-		Scanner kb;	// input Scanner for commands
-		PrintStream ps;	// output file, for student testing and grading only
-		// If arguments are specified, read/write from/to files instead of Std IO.
-		if (args.length != 0) {
-			kb = new Scanner(new File(args[0]));
-			ps = new PrintStream(new File(args[1]));
-			System.setOut(ps);			// redirect output to ps
-		} else {
-			kb = new Scanner(System.in);// default input from Stdin
-			ps = System.out;			// default output to Stdout
-		}
+		Scanner kb = new Scanner(System.in);;	// input Scanner for commands
+		PrintStream ps = System.out;;	// output file, for student testing and grading only
 		initialize();
-		
-		// TODO methods to read in words, output ladder
+		parse(kb);
+		boolean[][] edges = new boolean[dictionary.size()][dictionary.size()];
+		System.out.print(edges[0][0]);
 	}
 	
 	public static void initialize() {
-		// initialize your static variables or constants here.
-		// We will call this method before running our JUNIT tests.  So call it 
-		// only once at the start of main.
+		Set<String> dict = makeDictionary();
+		dictionary = new ArrayList<String>(dict);
+	}
+	
+	public static void fillEdges(boolean[][] edges){
+		for(int i = 0; i < dictionary.size(); i++){
+			for(int j = 0; j < 5; j++){
+				for(int k = 0; k < dictionary.size(); k++){
+					if(dictionary.get(i).substring(0,j).equals(dictionary.get(k).substring(0,j)) && dictionary.get(i).substring((j+1),5).equals(dictionary.get(k).substring((j+1),5))){
+						edges[i][k] = true;
+					}
+				}
+			}
+		}
 	}
 	
 	/**
@@ -51,7 +55,7 @@ public class Main {
 	 * If command is /quit, return empty ArrayList. 
 	 */
 	public static ArrayList<String> parse(Scanner keyboard) {
-		// TO DO
+		
 		return null;
 	}
 	
@@ -60,7 +64,7 @@ public class Main {
 		// Returned list should be ordered start to end.  Include start and end.
 		// If ladder is empty, return list with just start and end.
 		// TODO some code
-		Set<String> dict = makeDictionary();
+
 		// TODO more code
 		
 		return null; // replace this line later with real return
@@ -69,7 +73,6 @@ public class Main {
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
 		
 		// TODO some code
-		Set<String> dict = makeDictionary();
 		// TODO more code
 		
 		return null; // replace this line later with real return
