@@ -17,11 +17,19 @@ package assignment3;
 import java.util.*;
 import java.io.*;
 
+<<<<<<< HEAD
 public class Main {
 	public static final boolean DEBUG = false;
 	// static variables and constants only here.
 	public static ArrayList<String> dictionary;
 	public static ArrayList<ArrayList<String>> edges;
+=======
+public class Main_xx {
+	
+	public static final boolean DEBUG = true;
+	
+	// static variables and constants only here.
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -37,6 +45,7 @@ public class Main {
 			ps = System.out;			// default output to Stdout
 		}
 		initialize();
+<<<<<<< HEAD
 		//ArrayList<String> list = parse(kb);
 		fillEdges();
 		System.out.println(edges);
@@ -61,9 +70,20 @@ public class Main {
 			}
 			edges.add(temp);
 		}
+=======
+		
+		// TODO methods to read in words, output ladder
 	}
 	
-	/**
+	public static void initialize() {
+		// initialize your static variables or constants here.
+		// We will call this method before running our JUNIT tests.  So call it 
+		// only once at the start of main.
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
+	}
+	
+	/**Parse method
+	 * This method takes input from keyboard and determine if the input is valid
 	 * @param keyboard Scanner connected to System.in
 	 * @return ArrayList of Strings containing start word, rungs, and end word. 
 	 * If command is /quit, return empty ArrayList. 
@@ -98,26 +118,39 @@ public class Main {
 				}
 				
 				if(count == 1){
+<<<<<<< HEAD
 					if(inputList.get(0).toLowerCase().equals("/quit")){
 						lineScan.close();
+=======
+					if(inputList.get(0).toLowerCase().equals("quit")){
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 						break;
 					}
 					else{
 						inputList.set(0, "INVALID");
+<<<<<<< HEAD
 						lineScan.close();
+=======
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 						break;
 					}
 				}
 				if(count >2){
 					inputList.set(0, "INVALID");
+<<<<<<< HEAD
 					lineScan.close();
+=======
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 					break;
 				}
 				
 			}
 			
 			if(count == 2)
+<<<<<<< HEAD
 				lineScan.close();
+=======
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 				break;
 		}
 		return inputList;
@@ -127,6 +160,7 @@ public class Main {
 		
 		// Returned list should be ordered start to end.  Include start and end.
 		// If ladder is empty, return list with just start and end.
+<<<<<<< HEAD
 		ArrayList<String> temp = new ArrayList<String>();
 		for(int i = 0; i < 5; i++){
 			if(start.substring(0,i).equals(end.substring(0,i)) && start.substring((i+1),5).equals(end.substring((i+1),5))){
@@ -135,12 +169,34 @@ public class Main {
 			}
 		}
 		return temp;
+=======
+		// TODO some code
+		Set<String> dict = makeDictionary();
+		// TODO more code
+		
+		return null; // replace this line later with real return
+>>>>>>> 8e6b13c2a3d194e65fc3bd01511ac68803b68476
 	}
 	
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
-		
-		// TODO some code
-		// TODO more code
+
+    	ArrayList<String> newList = new Arraylist<String>();
+
+    	//Check the length first
+    	if(start.length != end.length){
+    		newList.add("INVALID");
+    		return newList;
+    	}
+
+    	//Check if there is a word in the input string
+    	if(start.length == 0){
+    		newList.add("INVALID");
+    		return newList;
+    	}
+
+    	//Setup dictionary
+		Set<String> dict = makeDictionary();
+
 		
 		return null; // replace this line later with real return
 	}
