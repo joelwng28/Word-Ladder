@@ -39,7 +39,7 @@ public class Main {
 		initialize();
 		//ArrayList<String> list = parse(kb);
 		//printLadder(list);
-		System.out.println(getWordLadderDFS("HANTS", "WARES"));
+		System.out.println(getWordLadderDFS("HELLO", "CELLS"));
 	}
 	
 	public static ArrayList<String> getWordLadderDFS(String start, String end) {
